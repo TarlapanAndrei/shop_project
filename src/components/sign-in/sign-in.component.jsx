@@ -28,7 +28,7 @@ class SignIn extends React.Component{
         password: ''
       })
     } catch(err){
-      console.err('error on sign in', err.message)
+      console.log('error on sign in', err.message)
     }
   }
   render(){
