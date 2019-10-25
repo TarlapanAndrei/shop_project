@@ -13,3 +13,16 @@ export const addItemToCart = (cartItems, itemToAdd) =>{
     return [...cartItems, {...itemToAdd, quantity:1}]
   }
 }
+
+export const minusItem = (cartItems, itemToMinus)=>{
+  if(itemToMinus.quantity <= 1){
+    return cartItems.filter(item => item.id !== itemToMinus.id)
+  } else {
+    return cartItems.map(item => 
+      item.id === itemToMinus.id ?
+      {...item, quantity: item.quantity-1}
+      :
+      item
+    )
+  }
+}
