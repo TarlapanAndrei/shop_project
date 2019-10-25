@@ -1,14 +1,12 @@
 import React from 'react';
-import SHOP_DATA from './shop.data'
 import './shop.styles.scss';
 import CollectionPreview from '../../components/collection-preview/collection-preview.component';
+import { selectCollections } from '../../redux/shop/shop.selectors';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
 
-class ShopPage extends React.Component{
-  state = {
-    collections: SHOP_DATA
-  }
-  render(){
-    const {collections} = this.state;
+const ShopPage = ({ collections }) =>{
+  
     return(
       <div>
         {
@@ -19,5 +17,7 @@ class ShopPage extends React.Component{
       </div>
     )
   }
-}
-export default ShopPage;
+const mapStateToProps = createStructuredSelector({
+  collections: selectCollections
+})
+export default connect(mapStateToProps)(ShopPage);
