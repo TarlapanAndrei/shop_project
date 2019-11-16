@@ -3,7 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux'
 import { setCurrentUser } from './redux/user/user.action';
-import{ auth, createUserProfileDocument } from './firebase/firebase-utils';
+import{ auth, createUserProfileDocument} from './firebase/firebase-utils';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 import './App.css';
@@ -12,6 +12,7 @@ import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import SignInAndSignUp from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Checkout from './pages/checkout/checkout.component';
+
 
 class App extends React.Component {
   
@@ -28,10 +29,8 @@ class App extends React.Component {
          })
        })
      }
-     setCurrentUser(
-      userAuth
-    )
-    })
+     setCurrentUser(userAuth);
+    });
   }
   componentWillUnmount(){
     this.unsubscribeFromAuth();
